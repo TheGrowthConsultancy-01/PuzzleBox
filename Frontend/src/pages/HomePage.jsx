@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageTransition from '../components/PageTransition';
 import KineticText from '../components/KineticText';
 import ScrollReveal from '../components/ScrollReveal';
+import ReelsSection from '../components/ReelsSection';
 import '../styles/home.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -502,6 +503,9 @@ export default function HomePage() {
 
       {/* ── IMPACT CALCULATOR ── */}
       <ImpactCalculator />
+
+      {/* ── REELS SHOWCASE ── */}
+      <ReelsSection />
 
       {/* ── CTA BAND ── */}
       <section className="home-cta-band">

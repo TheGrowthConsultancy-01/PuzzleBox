@@ -19,6 +19,20 @@ const INITIAL_FORM = {
   message: '',
 };
 
+const Field = ({ id, label, required, error, children }) => (
+  <div className="form-group">
+    <label className="form-label" htmlFor={id}>
+      {label} {required && <span>*</span>}
+    </label>
+    {children}
+    {error && (
+      <span style={{ fontSize: '0.75rem', color: '#c0392b', marginTop: '0.2rem' }}>
+        {error}
+      </span>
+    )}
+  </div>
+);
+
 export default function ContactPage() {
   const [form, setForm] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState({});
@@ -58,20 +72,6 @@ export default function ContactPage() {
       setSubmitted(true);
     }, 1400);
   };
-
-  const Field = ({ id, label, required, error, children }) => (
-    <div className="form-group">
-      <label className="form-label" htmlFor={id}>
-        {label} {required && <span>*</span>}
-      </label>
-      {children}
-      {error && (
-        <span style={{ fontSize: '0.75rem', color: '#c0392b', marginTop: '0.2rem' }}>
-          {error}
-        </span>
-      )}
-    </div>
-  );
 
   return (
     <PageTransition>
