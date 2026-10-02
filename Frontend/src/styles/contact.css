@@ -23,7 +23,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 30% 70%, rgba(156, 107, 47, 0.18) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 30% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -36,18 +36,19 @@
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
-  color: var(--cream);
+  color: var(--white);
   line-height: 1.1;
   margin-bottom: 1.25rem;
 }
 
 .contact-left h1 span {
-  color: var(--bronze-light);
+  color: #E4E4E7;
 }
 
 .contact-left p {
-  color: rgba(239, 231, 216, 0.65);
-  font-size: 0.95rem;
+  color: #F4F4F5;
+  font-size: 0.98rem;
+  font-weight: 500;
   line-height: 1.75;
   margin-bottom: 3rem;
 }
@@ -67,13 +68,14 @@
 .contact-info-icon {
   width: 36px;
   height: 36px;
-  border: 2px solid rgba(156, 107, 47, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: var(--bronze-light);
+  color: var(--white);
   flex-shrink: 0;
 }
 
@@ -83,17 +85,18 @@
 
 .contact-info-label {
   font-family: var(--font-display);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--bronze);
+  color: #E4E4E7;
   margin-bottom: 0.2rem;
 }
 
 .contact-info-value {
-  font-size: 0.88rem;
-  color: rgba(239, 231, 216, 0.75);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
 }
 
 /* RIGHT PANEL / FORM */
@@ -117,8 +120,9 @@
 }
 
 .contact-form-header p {
-  font-size: 0.875rem;
-  color: var(--ink-muted);
+  font-size: 0.92rem;
+  color: #18181B;
+  font-weight: 500;
 }
 
 /* FORM */
@@ -142,15 +146,15 @@
 
 .form-label {
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: #0A0A0C;
 }
 
 .form-label span {
-  color: var(--bronze);
+  color: #DC2626;
   margin-left: 2px;
 }
 
@@ -162,7 +166,8 @@
   border: 1.5px solid var(--bronze-pale);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--ink);
   width: 100%;
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
@@ -170,22 +175,22 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: var(--ink-muted);
+  color: #71717A;
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--bronze);
-  background: var(--cream);
-  box-shadow: 0 0 0 3px rgba(156, 107, 47, 0.12);
+  border-color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(10, 10, 12, 0.08);
 }
 
 .form-select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239C6B2F' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230A0A0C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
@@ -203,13 +208,13 @@
 .btn-submit {
   width: 100%;
   padding: 1rem 2rem;
-  background: var(--bronze);
-  color: var(--cream);
+  background: var(--ink);
+  color: var(--white);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 0.05em;
-  border: 2px solid var(--bronze);
+  border: 2px solid var(--ink);
   border-radius: var(--radius-sm);
   cursor: pointer;
   display: flex;
@@ -220,7 +225,7 @@
 }
 
 .btn-submit:hover {
-  background: var(--bronze-dark);
+  background: #000000;
   box-shadow: 5px 5px 0 var(--bronze-pale);
   transform: translate(-2px, -2px);
 }
@@ -256,12 +261,12 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--bronze);
+  background: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: var(--cream);
+  color: var(--white);
 }
 
 .form-success h3 {
@@ -272,7 +277,8 @@
 }
 
 .form-success p {
-  color: var(--ink-soft);
+  color: #18181B;
+  font-weight: 500;
   max-width: 320px;
   line-height: 1.65;
 }

@@ -3,23 +3,23 @@ import '../styles/footer.css';
 
 const MAZE_SVG = (
   <svg className="footer-maze-pattern" viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="10" width="60" height="60" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="30" y="30" width="20" height="20" stroke="#C99A4E" strokeWidth="1" />
-    <line x1="70" y1="10" x2="130" y2="10" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="130" y="10" width="60" height="40" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="190" y1="10" x2="270" y2="10" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="220" y="10" width="50" height="70" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="10" y1="70" x2="10" y2="130" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="10" y="130" width="80" height="60" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="30" y="148" width="40" height="24" stroke="#C99A4E" strokeWidth="1" />
-    <line x1="90" y1="130" x2="180" y2="130" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="140" y="80" width="60" height="50" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="200" y1="80" x2="270" y2="80" stroke="#C99A4E" strokeWidth="2" />
-    <rect x="200" y="130" width="70" height="60" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="130" y1="50" x2="130" y2="130" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="180" y1="130" x2="200" y2="130" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="270" y1="80" x2="270" y2="190" stroke="#C99A4E" strokeWidth="2" />
-    <line x1="10" y1="190" x2="270" y2="190" stroke="#C99A4E" strokeWidth="2" />
+    <rect x="10" y="10" width="60" height="60" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="30" y="30" width="20" height="20" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1" />
+    <line x1="70" y1="10" x2="130" y2="10" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="130" y="10" width="60" height="40" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="190" y1="10" x2="270" y2="10" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="220" y="10" width="50" height="70" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="10" y1="70" x2="10" y2="130" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="10" y="130" width="80" height="60" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="30" y="148" width="40" height="24" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1" />
+    <line x1="90" y1="130" x2="180" y2="130" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="140" y="80" width="60" height="50" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="200" y1="80" x2="270" y2="80" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <rect x="200" y="130" width="70" height="60" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="130" y1="50" x2="130" y2="130" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="180" y1="130" x2="200" y2="130" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="270" y1="80" x2="270" y2="190" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    <line x1="10" y1="190" x2="270" y2="190" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
   </svg>
 );
 

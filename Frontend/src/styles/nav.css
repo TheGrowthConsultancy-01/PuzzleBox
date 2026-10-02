@@ -19,23 +19,23 @@
               border-color 0.4s;
 }
 
-/* premium gold accent line that appears on scroll */
+/* premium accent line that appears on scroll */
 .site-header.scrolled::before,
 .navbar.scrolled::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--bronze), var(--bronze-light), var(--bronze), transparent);
-  opacity: .7;
+  background: linear-gradient(90deg, transparent, var(--ink), var(--ink-muted), var(--ink), transparent);
+  opacity: .35;
 }
 
 .site-header.scrolled,
 .navbar.scrolled {
-  background: rgba(251, 247, 239, 0.88);
+  background: rgba(250, 250, 250, 0.92);
   backdrop-filter: blur(16px) saturate(1.4);
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  box-shadow: 0 1px 0 rgba(156, 107, 47, 0.15), var(--shadow-deep);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), var(--shadow-deep);
 }
 
 .nav-logo {
@@ -61,7 +61,7 @@
   font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: 0.06em;
-  color: var(--bronze);
+  color: var(--ink);
   text-transform: uppercase;
   line-height: 1;
 }
@@ -103,7 +103,7 @@
   left: 1rem;
   right: 1rem;
   height: 2px;
-  background: var(--bronze);
+  background: var(--ink);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s var(--ease-out-expo);
@@ -116,7 +116,7 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--bronze);
+  color: var(--ink);
 }
 
 .nav-cta {
@@ -139,7 +139,7 @@
   display: block;
   width: 26px;
   height: 2px;
-  background: var(--bronze);
+  background: var(--ink);
   border-radius: 2px;
   transition: transform 0.3s, opacity 0.3s;
 }
@@ -186,7 +186,7 @@
 
 .nav-drawer a:hover,
 .nav-drawer a.active {
-  color: var(--bronze);
+  color: var(--ink);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -204,3 +204,4 @@
     display: flex;
   }
 }
+

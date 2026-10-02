@@ -78,7 +78,7 @@ export default function OurStoryPage() {
         <div className="story-hero-bg" />
         <div className="container">
           <div className="story-hero-content">
-            <div className="section-label" style={{ color: 'var(--bronze-light)', marginBottom: '2rem' }}>
+            <div className="section-label" style={{ color: 'rgba(255, 255, 255, 0.6)', marginBottom: '2rem' }}>
               Our Story
             </div>
             <KineticText
@@ -172,7 +172,7 @@ export default function OurStoryPage() {
 
             <ScrollReveal delay={0.15}>
               <div className="founding-right">
-                <div className="section-label" style={{ color: 'var(--bronze-light)' }}>How We Started</div>
+                <div className="section-label" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>How We Started</div>
                 <h2 style={{ marginTop: '1rem' }}>
                   A Puzzle Worth Solving
                 </h2>

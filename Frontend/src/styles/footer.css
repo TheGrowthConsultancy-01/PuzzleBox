@@ -1,7 +1,7 @@
 /* ===== FOOTER ===== */
 .footer {
   background: var(--ink);
-  color: var(--cream-dark);
+  color: #E4E4E7;
   padding-block: 4rem 2rem;
   position: relative;
   overflow: hidden;
@@ -13,8 +13,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--bronze-dark), var(--bronze), var(--bronze-light), var(--bronze));
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), #FFFFFF, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .footer-grid {
@@ -22,7 +22,7 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(239, 231, 216, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer-logo-img,
@@ -39,7 +39,7 @@
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--bronze-light);
+  color: #FFFFFF;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -48,14 +48,14 @@
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--bronze);
+  color: #E4E4E7; font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .footer-desc {
   font-size: 0.88rem;
   line-height: 1.7;
-  color: rgba(239, 231, 216, 0.65);
+  color: #E4E4E7;
   max-width: 260px;
 }
 
@@ -65,7 +65,7 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--bronze-light);
+  color: #FFFFFF;
   margin-bottom: 1.25rem;
 }
 
@@ -78,7 +78,7 @@
 
 .footer-links a {
   font-size: 0.88rem;
-  color: rgba(239, 231, 216, 0.6);
+  color: #E4E4E7;
   transition: color 0.2s;
   display: inline-flex;
   align-items: center;
@@ -86,12 +86,12 @@
 }
 
 .footer-links a:hover {
-  color: var(--bronze-light);
+  color: #FFFFFF;
 }
 
 .footer-links a::before {
   content: '›';
-  color: var(--bronze);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-bottom {
@@ -105,7 +105,7 @@
 
 .footer-copy {
   font-size: 0.8rem;
-  color: rgba(239, 231, 216, 0.4);
+  color: #A1A1AA;
 }
 
 .footer-maze-pattern {
@@ -114,13 +114,13 @@
   right: 0;
   width: 280px;
   height: 200px;
-  opacity: 0.04;
+  opacity: 0.05;
   pointer-events: none;
 }
 
 .footer-initiative {
   font-size: 0.8rem;
-  color: var(--bronze);
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -143,3 +143,4 @@
     text-align: center;
   }
 }
+

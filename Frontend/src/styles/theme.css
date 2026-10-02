@@ -3,16 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
 
 :root {
-  /* Colors */
-  --cream:        #FBF7EF;
-  --cream-dark:   #EFE7D8;
-  --bronze:       #9C6B2F;
-  --bronze-dark:  #7A5220;
-  --bronze-light: #C99A4E;
-  --bronze-pale:  #E8D5B0;
-  --ink:          #241A10;
-  --ink-soft:     #5C4530;
-  --ink-muted:    #8B6E52;
+  /* Colors — Minimalist Architectural Monochrome */
+  --cream:        #FAFAFA;
+  --cream-dark:   #F3F4F6;
+  --bronze:       #0A0A0C;
+  --bronze-dark:  #000000;
+  --bronze-light: #18181B;
+  --bronze-pale:  #E4E4E7;
+  --ink:          #0A0A0C;
+  --ink-soft:     #18181B;
+  --ink-muted:    #27272A;
+  --ink-dark:     #121215;
   --white:        #FFFFFF;
 
   /* Typography */
@@ -34,8 +35,8 @@
   --radius-lg:  20px;
 
   /* Shadows */
-  --shadow-bronze: 0 4px 24px rgba(156, 107, 47, 0.18);
-  --shadow-deep:   0 8px 40px rgba(36, 26, 16, 0.14);
+  --shadow-bronze: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-deep:   0 10px 40px rgba(0, 0, 0, 0.12);
 }
 
 /* ===== RESET & BASE ===== */
@@ -103,16 +104,16 @@ button {
   height: 2px;
   background: repeating-linear-gradient(
     90deg,
-    var(--bronze) 0px,
-    var(--bronze) 16px,
+    var(--ink) 0px,
+    var(--ink) 16px,
     transparent 16px,
     transparent 24px,
-    var(--bronze-light) 24px,
-    var(--bronze-light) 28px,
+    var(--ink-muted) 24px,
+    var(--ink-muted) 28px,
     transparent 28px,
     transparent 36px
   );
-  opacity: 0.35;
+  opacity: 0.15;
   margin-block: 1rem;
 }
 
@@ -120,12 +121,12 @@ button {
   width: 2px;
   background: repeating-linear-gradient(
     180deg,
-    var(--bronze) 0px,
-    var(--bronze) 16px,
+    var(--ink) 0px,
+    var(--ink) 16px,
     transparent 16px,
     transparent 24px
   );
-  opacity: 0.35;
+  opacity: 0.15;
 }
 
 /* ===== PUZZLE PIECE HOVER (mixin-like class) ===== */
@@ -134,7 +135,7 @@ button {
 }
 .puzzle-hover:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 6px 6px 0 var(--bronze-light), var(--shadow-bronze);
+  box-shadow: 6px 6px 0 var(--ink), var(--shadow-bronze);
 }
 
 /* ===== BUTTONS ===== */
@@ -143,18 +144,19 @@ button {
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 2rem;
-  background: var(--bronze);
-  color: var(--cream);
+  background: var(--ink);
+  color: var(--white);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
   border-radius: var(--radius-sm);
-  border: 2px solid var(--bronze);
+  border: 2px solid var(--ink);
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
 .btn-primary:hover {
-  background: var(--bronze-dark);
+  background: #000000;
+  color: var(--white);
   box-shadow: 5px 5px 0 var(--bronze-pale);
   transform: translate(-2px, -2px);
 }
@@ -165,18 +167,18 @@ button {
   gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: transparent;
-  color: var(--bronze);
+  color: var(--ink);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
   border-radius: var(--radius-sm);
-  border: 2px solid var(--bronze);
+  border: 2px solid var(--ink);
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
 .btn-outline:hover {
-  background: var(--bronze);
-  color: var(--cream);
+  background: var(--ink);
+  color: var(--white);
   box-shadow: 5px 5px 0 var(--bronze-pale);
   transform: translate(-2px, -2px);
 }
@@ -200,7 +202,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--bronze);
+  color: var(--ink);
   margin-bottom: 1.2rem;
 }
 .section-label::before,
@@ -209,7 +211,8 @@ button {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--bronze-light);
+  background: var(--ink-muted);
+  opacity: 0.5;
 }
 
 /* ===== HEADING STYLES ===== */

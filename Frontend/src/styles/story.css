@@ -14,7 +14,7 @@
 .story-hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(156, 107, 47, 0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
 }
 
 .story-hero-content {
@@ -29,18 +29,19 @@
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--cream);
+  color: var(--white);
   margin-bottom: 2rem;
 }
 
 .story-hero-content h1 em {
   font-style: normal;
-  color: var(--bronze-light);
+  color: #FFFFFF;
 }
 
 .story-hero-sub {
   font-size: clamp(1rem, 1.6vw, 1.15rem);
-  color: rgba(239, 231, 216, 0.7);
+  color: #F4F4F5;
+  font-weight: 500;
   line-height: 1.75;
   max-width: 580px;
 }
@@ -83,21 +84,22 @@
   transform: translateX(-50%);
   width: 40px;
   height: 3px;
-  background: var(--bronze);
+  background: var(--ink);
 }
 
 .prob-stat-num {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
-  color: var(--bronze);
+  color: var(--ink);
   line-height: 1;
   margin-bottom: 0.6rem;
 }
 
 .prob-stat-text {
-  font-size: 0.82rem;
-  color: var(--ink-soft);
+  font-size: 0.88rem;
+  color: #0A0A0C;
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -118,41 +120,42 @@
 }
 
 .process-step {
-  padding: 2rem;
-  border: 1px solid var(--bronze-pale);
+  padding: 2.25rem 2rem;
+  background: var(--cream-dark);
+  border: 1.5px solid var(--bronze-pale);
   border-radius: var(--radius-md);
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .process-step:hover {
-  border-color: var(--bronze);
+  border-color: var(--ink);
   box-shadow: 6px 6px 0 var(--bronze-pale);
   transform: translate(-3px, -3px);
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .step-number {
   font-family: var(--font-display);
   font-size: 4rem;
   font-weight: 800;
-  color: var(--bronze-pale);
+  color: #A1A1AA;
   line-height: 1;
   margin-bottom: 1rem;
 }
 
 .step-title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: var(--ink);
   margin-bottom: 0.75rem;
 }
 
 .step-desc {
-  font-size: 0.875rem;
-  color: var(--ink-soft);
+  font-size: 0.92rem;
+  color: #18181B;
+  font-weight: 500;
   line-height: 1.65;
 }
 
@@ -175,8 +178,8 @@
 }
 
 .founding-quote-card {
-  background: rgba(156, 107, 47, 0.1);
-  border: 1px solid rgba(156, 107, 47, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   position: relative;
@@ -189,40 +192,41 @@
   left: 1.5rem;
   font-size: 6rem;
   font-family: Georgia, serif;
-  color: var(--bronze);
+  color: rgba(255, 255, 255, 0.3);
   line-height: 1;
   opacity: 0.4;
 }
 
 .founding-quote {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-style: italic;
-  color: rgba(239, 231, 216, 0.85);
+  color: #FFFFFF;
   line-height: 1.75;
   margin-bottom: 1.5rem;
 }
 
 .founding-cite {
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--bronze-light);
+  color: #E4E4E7;
 }
 
 .founding-right h2 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  color: var(--cream);
+  color: var(--white);
   margin-bottom: 1.5rem;
   line-height: 1.15;
 }
 
 .founding-right p {
-  color: rgba(239, 231, 216, 0.65);
-  font-size: 0.95rem;
+  color: #F4F4F5;
+  font-size: 0.98rem;
+  font-weight: 500;
   line-height: 1.8;
   margin-bottom: 1.25rem;
 }

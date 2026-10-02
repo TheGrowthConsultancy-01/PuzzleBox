@@ -14,18 +14,18 @@ function MazeBg({ svgRef }) {
   return (
     <svg ref={svgRef} className="hero-maze-bg" viewBox="0 0 500 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => (
-        <line key={`h${i}`} x1="0" y1={i * 80} x2="500" y2={i * 80} stroke="#9C6B2F" strokeWidth="1" />
+        <line key={`h${i}`} x1="0" y1={i * 80} x2="500" y2={i * 80} stroke="rgba(10, 10, 12, 0.12)" strokeWidth="1" />
       ))}
       {[0, 1, 2, 3, 4, 5, 6].map(i => (
-        <line key={`v${i}`} x1={i * 80} y1="0" x2={i * 80} y2="800" stroke="#9C6B2F" strokeWidth="1" />
+        <line key={`v${i}`} x1={i * 80} y1="0" x2={i * 80} y2="800" stroke="rgba(10, 10, 12, 0.12)" strokeWidth="1" />
       ))}
-      <rect x="80" y="80" width="160" height="80" stroke="#C99A4E" strokeWidth="2" fill="none" />
-      <rect x="240" y="160" width="120" height="120" stroke="#C99A4E" strokeWidth="2" fill="none" />
-      <rect x="80" y="400" width="200" height="80" stroke="#9C6B2F" strokeWidth="2" fill="none" />
-      <rect x="320" y="480" width="140" height="140" stroke="#C99A4E" strokeWidth="1.5" fill="none" />
-      <rect x="40" y="560" width="120" height="80" stroke="#9C6B2F" strokeWidth="1.5" fill="none" />
+      <rect x="80" y="80" width="160" height="80" stroke="rgba(10, 10, 12, 0.3)" strokeWidth="2" fill="none" />
+      <rect x="240" y="160" width="120" height="120" stroke="rgba(10, 10, 12, 0.3)" strokeWidth="2" fill="none" />
+      <rect x="80" y="400" width="200" height="80" stroke="rgba(10, 10, 12, 0.12)" strokeWidth="2" fill="none" />
+      <rect x="320" y="480" width="140" height="140" stroke="rgba(10, 10, 12, 0.3)" strokeWidth="1.5" fill="none" />
+      <rect x="40" y="560" width="120" height="80" stroke="rgba(10, 10, 12, 0.12)" strokeWidth="1.5" fill="none" />
       {[[80, 80], [240, 80], [80, 160], [240, 160], [80, 400], [280, 400]].map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="4" fill="#C99A4E" />
+        <circle key={i} cx={x} cy={y} r="4" fill="rgba(10, 10, 12, 0.5)" />
       ))}
     </svg>
   );
@@ -398,12 +398,12 @@ export default function HomePage() {
         <div className="container">
           <div className="solutions-header">
             <div>
-              <div className="section-label" style={{ color: 'var(--bronze-light)' }}>What We Do</div>
-              <h2 className="h-display h-lg" style={{ color: 'var(--cream)', marginTop: '.75rem' }}>
+              <div className="section-label" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>What We Do</div>
+              <h2 className="h-display h-lg" style={{ color: '#FFFFFF', marginTop: '.75rem' }}>
                 Two Ways To Switch
               </h2>
             </div>
-            <Link to="/projects" className="btn-outline" style={{ color: 'var(--bronze-light)', borderColor: 'rgba(201,154,78,.4)', fontSize: '.82rem', padding: '.6rem 1.4rem', flexShrink: 0 }}>
+            <Link to="/projects" className="btn-outline" style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.3)', fontSize: '.82rem', padding: '.6rem 1.4rem', flexShrink: 0 }}>
               See All Projects →
             </Link>
           </div>

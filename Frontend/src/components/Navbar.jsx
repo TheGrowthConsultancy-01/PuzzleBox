@@ -61,7 +61,7 @@ export default function Navbar() {
     <>
       <header className="site-header navbar" ref={navRef}>
         <Link to="/" className="nav-logo" onClick={closeDrawer}>
-          <img src="/logo-light.png" alt="PUZZLE BOXX — Innovation | Creation | Customization" className="nav-logo-img" />
+          <img src="/logo.png" alt="PUZZLE BOXX — Innovation | Creation | Customization" className="nav-logo-img" />
         </Link>
 
         <ul className="nav-links">
