@@ -137,3 +137,32 @@
 .home-cta-watermark {
   color: rgba(255, 255, 255, 0.05) !important;
 }
+
+/* 5. Reels Section Header Contrast on Dark Background */
+.reels-section .reels-header h2,
+.project-detail-page .reels-section h2,
+.project-detail-page .reels-header h2 {
+  color: #FFFFFF !important;
+}
+
+.reels-section .reels-header p,
+.project-detail-page .reels-section p,
+.project-detail-page .reels-header p {
+  color: #D4D4D8 !important;
+  font-weight: 500 !important;
+}
+
+.reels-section .reels-header .section-label,
+.project-detail-page .reels-section .section-label,
+.project-detail-page .reels-header .section-label {
+  color: #E4E4E7 !important;
+}
+
+.reels-section .reels-header .section-label::before,
+.reels-section .reels-header .section-label::after,
+.project-detail-page .reels-section .section-label::before,
+.project-detail-page .reels-section .section-label::after {
+  background: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1 !important;
+}
+

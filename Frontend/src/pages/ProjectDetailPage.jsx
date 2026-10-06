@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import KineticText from '../components/KineticText';
 import ScrollReveal from '../components/ScrollReveal';
+import ReelsSection from '../components/ReelsSection';
 import '../styles/projects.css';
 
 const PROJECT_DATABASE = {
@@ -46,6 +47,10 @@ const PROJECT_DATABASE = {
     slug: 'cutlery',
     badge: 'Serviceware Solution',
     icon: '🥄',
+    gallery: [
+      { src: '/cutlery-spoon.jpg', alt: 'Bespoke Laser-Etched Birchwood Spoon' },
+      { src: '/cutlery-set.jpg', alt: 'Production Run Branded Cutlery Sets' },
+    ],
     title: 'Branded Sustainable Cutlery Sets',
     subtitle: 'Laser-etched FSC Birchwood, Bamboo & CPLA serviceware individually wrapped in custom printed brand paper sleeves for hospitality, events & dining.',
     heroMetric: '100% Renewable Plant Materials',
@@ -83,6 +88,39 @@ const PROJECT_DATABASE = {
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = PROJECT_DATABASE[slug] || PROJECT_DATABASE['chocolate'];
+
+  const [activeGalleryIdx, setActiveGalleryIdx] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const handlePrevImage = (e) => {
+    e?.stopPropagation?.();
+    if (!project.gallery || project.gallery.length <= 1) return;
+    setActiveGalleryIdx((prev) => (prev === 0 ? project.gallery.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = (e) => {
+    e?.stopPropagation?.();
+    if (!project.gallery || project.gallery.length <= 1) return;
+    setActiveGalleryIdx((prev) => (prev === project.gallery.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNextImage();
+      } else {
+        handlePrevImage();
+      }
+    }
+    setTouchStartX(null);
+  };
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -124,29 +162,147 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* ── OVERVIEW & METRICS ── */}
-      <section className="project-overview-sec section-pad" style={{ background: 'var(--ink-dark)' }}>
+      <section className="project-overview-sec section-pad">
         <div className="container">
-          <div className="project-overview-grid">
-            <ScrollReveal>
-              <div className="overview-text-block">
-                <span className="overview-icon">{project.icon}</span>
-                <h2>Solution Overview</h2>
-                <p>{project.overview}</p>
-              </div>
-            </ScrollReveal>
+          {project.gallery ? (
+            <div className="overview-showcase-split">
+              {/* Left Column: One-by-One Product Showcase Slider */}
+              <ScrollReveal>
+                <div 
+                  className="product-slider-stage"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  <div className="product-slider-viewport">
+                    <div 
+                      className="product-slider-track"
+                      style={{ transform: `translateX(-${activeGalleryIdx * 100}%)` }}
+                    >
+                      {project.gallery.map((item, idx) => (
+                        <div key={idx} className="product-slider-slide">
+                          <img
+                            src={item.src}
+                            alt={item.alt || `${project.title} - ${idx + 1}`}
+                            className="product-slider-photo"
+                            loading="lazy"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-            <ScrollReveal delay={0.15}>
-              <div className="overview-stat-card">
-                <div className="overview-stat-metric">{project.heroMetric}</div>
-                <div className="overview-stat-desc">Zero Compromise on Packaging Quality & Durability</div>
-                <div className="overview-pill-list">
-                  <span>✓ ISO 17088 Certified</span>
-                  <span>✓ Food-Safe FDA Approved</span>
-                  <span>✓ 100% Custom Branded</span>
+                  {/* Navigation Arrow: Previous */}
+                  {project.gallery.length > 1 && (
+                    <button
+                      type="button"
+                      className="slider-nav-arrow slider-nav-arrow--prev"
+                      onClick={handlePrevImage}
+                      aria-label="Previous image"
+                    >
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+                  )}
+
+                  {/* Navigation Arrow: Next */}
+                  {project.gallery.length > 1 && (
+                    <button
+                      type="button"
+                      className="slider-nav-arrow slider-nav-arrow--next"
+                      onClick={handleNextImage}
+                      aria-label="Next image"
+                    >
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
+                  )}
+
+                  {/* Bottom Navigation Pill with Dots and Counter */}
+                  {project.gallery.length > 1 && (
+                    <div className="slider-nav-pill">
+                      <div className="slider-nav-dots">
+                        {project.gallery.map((_, dotIdx) => (
+                          <button
+                            key={dotIdx}
+                            type="button"
+                            className={`slider-dot-btn ${activeGalleryIdx === dotIdx ? 'active' : ''}`}
+                            onClick={() => setActiveGalleryIdx(dotIdx)}
+                            aria-label={`Slide ${dotIdx + 1}`}
+                          />
+                        ))}
+                      </div>
+                      <span className="slider-nav-counter">
+                        0{activeGalleryIdx + 1} / 0{project.gallery.length}
+                      </span>
+                    </div>
+                  )}
                 </div>
-              </div>
-            </ScrollReveal>
-          </div>
+              </ScrollReveal>
+
+              {/* Right Column: Solution Overview Narrative + Integrated Standards */}
+              <ScrollReveal delay={0.15} className="overview-showcase-content">
+                <div className="overview-content-header">
+                  <div className="section-label">
+                    <span>{project.icon}</span> Solution Overview
+                  </div>
+                  <h2>{project.title}</h2>
+                  <p className="overview-lead-text">{project.overview}</p>
+                </div>
+
+                <div className="overview-metric-banner">
+                  <div className="metric-banner-header">
+                    <div className="metric-highlight-val">{project.heroMetric}</div>
+                    <div className="metric-highlight-desc">
+                      Zero Compromise on Material Durability & Food Safety
+                    </div>
+                  </div>
+
+                  <div className="overview-spec-pills">
+                    <div className="spec-pill-item">
+                      <span className="spec-pill-check">✓</span>
+                      <span>ISO 17088 Certified</span>
+                    </div>
+                    <div className="spec-pill-item">
+                      <span className="spec-pill-check">✓</span>
+                      <span>Food-Safe FDA & BIS</span>
+                    </div>
+                    <div className="spec-pill-item">
+                      <span className="spec-pill-check">✓</span>
+                      <span>100% Custom Branded</span>
+                    </div>
+                    <div className="spec-pill-item">
+                      <span className="spec-pill-check">✓</span>
+                      <span>Heat Resistant to 90°C</span>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          ) : (
+            <div className="project-overview-grid">
+              <ScrollReveal>
+                <div className="overview-text-block">
+                  <span className="overview-icon">{project.icon}</span>
+                  <h2>Solution Overview</h2>
+                  <p>{project.overview}</p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.15}>
+                <div className="overview-stat-card">
+                  <div className="overview-stat-metric">{project.heroMetric}</div>
+                  <div className="overview-stat-desc">Zero Compromise on Packaging Quality & Durability</div>
+                  <div className="overview-pill-list">
+                    <span>✓ ISO 17088 Certified</span>
+                    <span>✓ Food-Safe FDA Approved</span>
+                    <span>✓ 100% Custom Branded</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          )}
         </div>
       </section>
 
@@ -213,6 +369,13 @@ export default function ProjectDetailPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ── REELS SHOWCASE ── */}
+      <ReelsSection
+        label={project.slug === 'cutlery' ? 'Serviceware in Action' : 'Packaging in Action'}
+        title="Watch Our Switch in Motion"
+        description="Experience our certified compostable materials, custom finishes, and tactile luxury in action."
+      />
 
       {/* ── SAMPLE REQUEST & QUOTE FORM ── */}
       <section className="project-inquiry-sec section-pad" style={{ background: 'var(--ink-dark)' }}>

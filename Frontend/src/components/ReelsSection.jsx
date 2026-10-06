@@ -168,7 +168,11 @@ function ReelCard({ reel, isAudioActive, onToggleAudio }) {
   );
 }
 
-export default function ReelsSection() {
+export default function ReelsSection({
+  label = 'Sustainable Packaging in Action',
+  title = 'Watch Our Switch in Motion',
+  description = 'Experience our 100% home-compostable chocolate wrappers, bespoke luxury print finishes, and eco-conscious packaging engineered for premium brands.',
+} = {}) {
   const [activeAudioId, setActiveAudioId] = useState(null);
 
   const handleToggleAudio = id => {
@@ -179,12 +183,9 @@ export default function ReelsSection() {
     <section className="reels-section">
       <div className="container">
         <ScrollReveal className="reels-header">
-          <div className="section-label">Sustainable Packaging in Action</div>
-          <h2>Watch Our Switch in Motion</h2>
-          <p>
-            Experience our 100% home-compostable chocolate wrappers, bespoke luxury print finishes,
-            and eco-conscious packaging engineered for premium brands.
-          </p>
+          <div className="section-label">{label}</div>
+          <h2>{title}</h2>
+          {description && <p>{description}</p>}
         </ScrollReveal>
 
         <ScrollReveal stagger>
