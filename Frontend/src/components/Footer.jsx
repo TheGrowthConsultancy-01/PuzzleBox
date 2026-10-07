@@ -66,8 +66,8 @@ export default function Footer() {
             <div className="footer-col-title">Connect</div>
             <ul className="footer-links">
               <li><Link to="/contact">Start Your Switch</Link></li>
-              <li><a href="mailto:hello@puzzleboxx.in">hello@puzzleboxx.in</a></li>
-              <li><a href="tel:+91-XXXXXXXXXX">+91 XXXXX XXXXX</a></li>
+              <li><a href="mailto:info@puzzleboxx.in">info@puzzleboxx.in</a></li>
+              <li><a href="tel:+91-9512928028">+91 95129 28028</a></li>
             </ul>
           </div>
         </div>

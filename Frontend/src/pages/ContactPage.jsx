@@ -93,8 +93,8 @@ export default function ContactPage() {
 
             <div className="contact-info-list">
               {[
-                { icon: '✉️', label: 'Email', value: 'hello@puzzleboxx.in' },
-                { icon: '📞', label: 'Phone', value: '+91 XXXXX XXXXX' },
+                { icon: '✉️', label: 'Email', value: 'info@puzzleboxx.in' },
+                { icon: '📞', label: 'Phone', value: '+91 95129 28028' },
                 { icon: '📍', label: 'Location', value: 'India — serving brands nationwide' },
                 { icon: '⏱', label: 'Response Time', value: 'We reply within 24 business hours' },
               ].map((info, i) => (
