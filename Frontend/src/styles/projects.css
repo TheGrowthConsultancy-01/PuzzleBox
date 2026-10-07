@@ -599,7 +599,7 @@
 /* ===== REDESIGNED SOLUTION OVERVIEW SHOWCASE ===== */
 .overview-showcase-split {
   display: grid;
-  grid-template-columns: minmax(420px, 1.15fr) 1fr;
+  grid-template-columns: minmax(460px, 1.25fr) 1fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -608,12 +608,11 @@
 .product-slider-stage {
   position: relative;
   width: 100%;
-  height: 520px;
-  background: #F9F8F5;
-  border: 1.5px solid var(--bronze-pale);
-  border-radius: var(--radius-lg, 20px);
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  height: 800px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   user-select: none;
   display: flex;
   align-items: center;
@@ -643,20 +642,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem;
+  padding: 0.5rem 1.5rem 3.5rem;
   box-sizing: border-box;
 }
 
 .product-slider-photo {
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.08));
+  border-radius: 14px;
+  transition: transform 0.4s ease;
 }
 
 .product-slider-stage:hover .product-slider-photo {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* Floating Navigation Arrows */
@@ -1143,11 +1144,17 @@
     gap: 2.75rem;
   }
   .product-slider-stage {
-    height: 440px;
+    height: 520px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  .product-slider-slide {
+    padding: 0.5rem 1rem 3.25rem;
   }
   .slider-nav-arrow {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
   .project-overview-grid,
   .inquiry-box {
@@ -1168,10 +1175,13 @@
     grid-template-columns: 1fr;
   }
   .product-slider-stage {
-    height: 350px;
+    height: 420px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
   .product-slider-slide {
-    padding: 1.25rem;
+    padding: 0.5rem 0.75rem 3rem;
   }
   .slider-nav-arrow {
     width: 38px;
