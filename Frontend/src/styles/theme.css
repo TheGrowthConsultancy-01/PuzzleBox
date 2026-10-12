@@ -21,9 +21,9 @@
   --font-body:    'DM Sans', sans-serif;
 
   /* Spacing */
-  --section-pad:  clamp(4rem, 8vw, 8rem);
-  --container:    1200px;
-  --gutter:       clamp(1.25rem, 4vw, 2.5rem);
+  --section-pad:  clamp(3.5rem, 6vw, 6.5rem);
+  --container:    1280px;
+  --gutter:       clamp(1rem, 2.5vw, 1.75rem);
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
