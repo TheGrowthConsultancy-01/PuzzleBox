@@ -153,6 +153,83 @@ export default function OurStoryPage() {
         </div>
       </section>
 
+      {/* ── REAL-WORLD DEPLOYMENT ── */}
+      <section className="story-deploy-sec section-pad">
+        <div className="container">
+          <ScrollReveal className="story-deploy-header text-center">
+            <div className="section-label" style={{ justifyContent: 'center' }}>Real-World Deployment</div>
+            <h2 className="h-display h-lg" style={{ marginTop: '0.75rem' }}>
+              Proof In Practice — Real Brands, Zero Plastic
+            </h2>
+            <p className="story-deploy-subtitle">
+              We don't just prototype ideas in a lab. Our custom-branded sustainable cutlery is actively deployed
+              across high-volume dining tables and artisan patisseries — proving that eco-friendly alternatives
+              can outperform plastic in durability, hygiene, and guest perception.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal stagger className="story-deploy-grid">
+            <div className="story-deploy-card">
+              <div className="story-deploy-img-wrap">
+                <img
+                  src="/cutlery-set.jpg"
+                  alt=""
+                  className="story-deploy-ambient"
+                  aria-hidden="true"
+                />
+                <img
+                  src="/cutlery-set.jpg"
+                  alt="High-volume restaurant table service with laser-etched Birchwood cutlery"
+                  className="story-deploy-img"
+                  loading="lazy"
+                />
+                <span className="story-deploy-tag">Institutional & Restaurant Dining</span>
+              </div>
+              <div className="story-deploy-body">
+                <h3>Bhagat Tarachand · Commercial Table Service</h3>
+                <p>
+                  High-heat, splinter-free Birchwood spoons holding up effortlessly to multi-course hot meals, curries, and dal makhani in bustling family restaurants.
+                </p>
+                <div className="story-deploy-meta">
+                  <span>✓ 100% FSC-Certified Birchwood</span>
+                  <span>✓ Heat-Tolerant to 90°C</span>
+                  <span>✓ Eliminates Single-Use Plastic at Scale</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="story-deploy-card">
+              <div className="story-deploy-img-wrap">
+                <img
+                  src="/cutlery-spoon.jpg"
+                  alt=""
+                  className="story-deploy-ambient"
+                  aria-hidden="true"
+                />
+                <img
+                  src="/cutlery-spoon.jpg"
+                  alt="Luxury bakery and patisserie table presentation with branded wooden spoons"
+                  className="story-deploy-img"
+                  loading="lazy"
+                />
+                <span className="story-deploy-tag">Luxury Patisserie & Desserts</span>
+              </div>
+              <div className="story-deploy-body">
+                <h3>Sweet County · Artisan Pastry Presentation</h3>
+                <p>
+                  Ultra-smooth, organic vegetable wax polished spoons customized with laser branding — complementing decadent raspberry chocolate gateaux with pristine presentation.
+                </p>
+                <div className="story-deploy-meta">
+                  <span>✓ Zero Woody Aftertaste</span>
+                  <span>✓ Food-Safe FDA & BIS Certified</span>
+                  <span>✓ Permanent Laser Logo Detailing</span>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ── FOUNDING NARRATIVE ── */}
       <section className="founding-section section-pad">
         <div className="container">

@@ -253,7 +253,28 @@ export default function HomePage() {
   const heroRef = useRef(null);
   const mazeBgRef = useRef(null);
   const scrollDotRef = useRef(null);
+  const heroVideoRef = useRef(null);
   const [isEcoSwitch, setIsEcoSwitch] = useState(true);
+  const [isHeroMuted, setIsHeroMuted] = useState(true);
+
+  const toggleHeroSound = () => {
+    if (heroVideoRef.current) {
+      const nextMuted = !heroVideoRef.current.muted;
+      heroVideoRef.current.muted = nextMuted;
+      setIsHeroMuted(nextMuted);
+      if (!nextMuted && heroVideoRef.current.paused) {
+        heroVideoRef.current.play().catch(() => {});
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (heroVideoRef.current) {
+      heroVideoRef.current.defaultMuted = true;
+      heroVideoRef.current.muted = true;
+      heroVideoRef.current.play().catch(() => {});
+    }
+  }, []);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -384,8 +405,37 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* RIGHT — dark panel with interactive showcase */}
+        {/* RIGHT — dark panel with background video and interactive showcase */}
         <div className="hero-right">
+          <div className="hero-video-bg-wrap">
+            <video
+              ref={heroVideoRef}
+              className="hero-video-bg"
+              autoPlay
+              loop
+              muted={isHeroMuted}
+              playsInline
+              preload="auto"
+            >
+              <source
+                src="https://pub-2cf484a806bc45689318b94b84b07095.r2.dev/puzel%20box.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div className="hero-video-overlay" />
+          </div>
+
+          <button
+            type="button"
+            className="hero-video-sound-btn"
+            onClick={toggleHeroSound}
+            aria-label={isHeroMuted ? 'Unmute background video' : 'Mute background video'}
+            title={isHeroMuted ? 'Turn Sound On' : 'Mute Sound'}
+          >
+            {isHeroMuted ? '🔇' : '🔊'}
+          </button>
+
           <MazeBg svgRef={mazeBgRef} />
           <HeroShowcase />
         </div>
@@ -424,6 +474,93 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── REAL-WORLD PROOF: IN ACTION ── */}
+      <section className="proof-action-sec">
+        <div className="container">
+          <ScrollReveal className="proof-action-header text-center">
+            <div className="section-label" style={{ justifyContent: 'center' }}>Real-World Proof</div>
+            <h2 className="h-display h-lg" style={{ marginTop: '0.75rem' }}>
+              Trusted In Action — From Thalis to Patisseries
+            </h2>
+            <p className="proof-action-subtitle">
+              See how leading food establishments and hospitality brands use PUZZLE BOXX custom-branded
+              sustainable cutlery to eliminate plastic waste without compromising on guest experience.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal stagger className="proof-action-grid">
+            {/* Card 1: Bhagat Tarachand */}
+            <div className="proof-action-card puzzle-hover">
+              <div className="proof-card-media">
+                <img
+                  src="/cutlery-set.jpg"
+                  alt=""
+                  className="proof-card-ambient"
+                  aria-hidden="true"
+                />
+                <img
+                  src="/cutlery-set.jpg"
+                  alt="Bhagat Tarachand Custom Laser-Engraved Birchwood Cutlery"
+                  className="proof-card-img"
+                  loading="lazy"
+                />
+                <span className="proof-card-badge">🍽️ Hospitality & Dining</span>
+              </div>
+              <div className="proof-card-content">
+                <div className="proof-brand-pill">Client Spotlight: Bhagat Tarachand</div>
+                <h3>Authentic Restaurant Table Service</h3>
+                <p>
+                  High-durability birchwood spoons engineered with splinter-free organic wax sealing.
+                  Resilient enough for hot curries, dal makhani, and rigorous multi-course thali dining.
+                </p>
+                <div className="proof-spec-tags">
+                  <span>✓ Heat-Resistant to 90°C</span>
+                  <span>✓ Splinter-Free Coating</span>
+                  <span>✓ 100% Home Compostable</span>
+                </div>
+                <Link to="/projects/cutlery" className="proof-card-link">
+                  Explore Serviceware Project →
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: Sweet County */}
+            <div className="proof-action-card puzzle-hover">
+              <div className="proof-card-media">
+                <img
+                  src="/cutlery-spoon.jpg"
+                  alt=""
+                  className="proof-card-ambient"
+                  aria-hidden="true"
+                />
+                <img
+                  src="/cutlery-spoon.jpg"
+                  alt="Sweet County Custom-Branded Dessert Spoons"
+                  className="proof-card-img"
+                  loading="lazy"
+                />
+                <span className="proof-card-badge">🍰 Cafés & Patisserie</span>
+              </div>
+              <div className="proof-card-content">
+                <div className="proof-brand-pill">Client Spotlight: Sweet County</div>
+                <h3>Artisan Pastry & Dessert Presentation</h3>
+                <p>
+                  Delicate, ultra-smooth pastry spoons crafted for high-end bakeries. Preserves delicate
+                  raspberry and chocolate mousse flavors with zero chemical leaching or woody aftertaste.
+                </p>
+                <div className="proof-spec-tags">
+                  <span>✓ Zero Woody Taste</span>
+                  <span>✓ FDA Food-Grade Certified</span>
+                  <span>✓ Custom Logo Etching</span>
+                </div>
+                <Link to="/projects/cutlery" className="proof-card-link">
+                  Explore Serviceware Project →
+                </Link>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* ── INDUSTRY STRIP ── */}
       <section className="industry-strip">

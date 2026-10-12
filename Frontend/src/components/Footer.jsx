@@ -67,11 +67,12 @@ export default function Footer() {
             <ul className="footer-links">
               <li><Link to="/contact">Start Your Switch</Link></li>
               <li><a href="mailto:info@puzzleboxx.in">info@puzzleboxx.in</a></li>
-              <li><a href="tel:+91-9512928028">+91 95129 28028</a></li>
+              <li><a href="https://wa.me/919512928028" target="_blank" rel="noopener noreferrer">WhatsApp: +91 95129 28028</a></li>
+              <li><a href="tel:+919512928028">+91 95129 28028</a></li>
             </ul>
           </div>
         </div>
-
+    
         <div className="footer-bottom">
           <p className="footer-copy">
             © {new Date().getFullYear()} PUZZLE BOXX. All rights reserved.

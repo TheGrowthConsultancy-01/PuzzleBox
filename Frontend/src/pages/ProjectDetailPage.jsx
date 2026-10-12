@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import KineticText from '../components/KineticText';
@@ -11,6 +11,10 @@ const PROJECT_DATABASE = {
     slug: 'chocolate',
     badge: 'Packaging Solution',
     icon: '🍫',
+    gallery: [
+      { src: '/chocolate-wrapper.jpg', alt: 'PUZZLE BOXX Custom Compostable Confectionery Wrappers' },
+      { src: '/chocolate-pack.jpg', alt: 'PUZZLE BOXX Individually Sealed Flow-Pack Chocolates' },
+    ],
     title: 'Branded Chocolate & Confectionery Wrappers',
     subtitle: 'High-barrier, certified home-compostable luxury packaging engineered for artisan cocoa, premium chocolate bars, and FMCG confectionery brands.',
     heroMetric: '0g Single-Use Plastic',
@@ -92,6 +96,10 @@ export default function ProjectDetailPage() {
   const [activeGalleryIdx, setActiveGalleryIdx] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
 
+  useEffect(() => {
+    setActiveGalleryIdx(0);
+  }, [slug]);
+
   const handlePrevImage = (e) => {
     e?.stopPropagation?.();
     if (!project.gallery || project.gallery.length <= 1) return;
@@ -133,6 +141,19 @@ export default function ProjectDetailPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const msg = `*Sample & Bulk Quote Request - PUZZLE BOXX* 📦🌿\n\n` +
+      `*Product:* ${project.title}\n` +
+      `*Name:* ${formData.name.trim()}\n` +
+      `*Email:* ${formData.email.trim()}\n` +
+      (formData.company.trim() ? `*Company:* ${formData.company.trim()}\n` : '') +
+      `*Quantity:* ${Number(formData.quantity).toLocaleString()} units\n` +
+      (formData.notes.trim() ? `*Project Notes:* ${formData.notes.trim()}\n` : '');
+
+    const whatsappUrl = `https://wa.me/919512928028?text=${encodeURIComponent(msg)}`;
+    const win = window.open(whatsappUrl, '_blank');
+    if (win) {
+      win.focus();
+    }
     setFormSubmitted(true);
   };
 
@@ -255,7 +276,9 @@ export default function ProjectDetailPage() {
                   <div className="metric-banner-header">
                     <div className="metric-highlight-val">{project.heroMetric}</div>
                     <div className="metric-highlight-desc">
-                      Zero Compromise on Material Durability & Food Safety
+                      {project.slug === 'cutlery'
+                        ? 'Zero Compromise on Material Durability & Food Safety'
+                        : 'Zero Compromise on Barrier Protection & Food Safety'}
                     </div>
                   </div>
 
@@ -274,7 +297,11 @@ export default function ProjectDetailPage() {
                     </div>
                     <div className="spec-pill-item">
                       <span className="spec-pill-check">✓</span>
-                      <span>Heat Resistant to 90°C</span>
+                      <span>
+                        {project.slug === 'cutlery'
+                          ? 'Heat Resistant to 90°C'
+                          : 'High Moisture & Oxygen Barrier'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -399,10 +426,25 @@ export default function ProjectDetailPage() {
                 <div className="inquiry-success">
                   <div className="success-icon">✨</div>
                   <h3>Sample Request Received!</h3>
-                  <p>Thank you, {formData.name}. Our sustainability team will send product samples and pricing details to <strong>{formData.email}</strong> within 24 hours.</p>
-                  <button className="btn-primary" onClick={() => setFormSubmitted(false)} style={{ marginTop: '1.5rem' }}>
-                    Send Another Request
-                  </button>
+                  <p>
+                    Thank you, {formData.name}. Your inquiry has been sent to our team at <strong>+91 95129 28028</strong>. We will also follow up with product samples and pricing details to <strong>{formData.email}</strong> within 24 hours.
+                  </p>
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+                    <a
+                      href={`https://wa.me/919512928028?text=${encodeURIComponent(
+                        `*Sample & Bulk Quote Request - PUZZLE BOXX* 📦🌿\n\n*Product:* ${project.title}\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n${formData.company ? `*Company:* ${formData.company}\n` : ''}*Quantity:* ${Number(formData.quantity).toLocaleString()} units\n${formData.notes ? `*Notes:* ${formData.notes}\n` : ''}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                      style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                    >
+                      💬 Open in WhatsApp (+91 95129 28028)
+                    </a>
+                    <button className="btn-outline" onClick={() => setFormSubmitted(false)}>
+                      Send Another Request
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="inquiry-form">

@@ -66,11 +66,27 @@ export default function ContactPage() {
     }
 
     setLoading(true);
-    // Simulate async submission
+
+    const message = `*New Inquiry from PuzzleBoxx Website* 📦🌿\n\n` +
+      `*Company:* ${form.company.trim()}\n` +
+      `*Name:* ${form.name.trim()}\n` +
+      `*Mobile:* ${form.mobile.trim()}\n` +
+      `*Email:* ${form.email.trim()}\n` +
+      `*Area of Interest:* ${form.interest}\n` +
+      (form.message.trim() ? `*Message:* ${form.message.trim()}\n` : '');
+
+    const whatsappUrl = `https://wa.me/919512928028?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp directly with inquiry details to +91 95129 28028
+    const win = window.open(whatsappUrl, '_blank');
+    if (win) {
+      win.focus();
+    }
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 1400);
+    }, 600);
   };
 
   return (
@@ -93,8 +109,9 @@ export default function ContactPage() {
 
             <div className="contact-info-list">
               {[
-                { icon: '✉️', label: 'Email', value: 'info@puzzleboxx.in' },
-                { icon: '📞', label: 'Phone', value: '+91 95129 28028' },
+                { icon: '✉️', label: 'Email', value: 'info@puzzleboxx.in', link: 'mailto:info@puzzleboxx.in' },
+                { icon: '📞', label: 'Phone', value: '+91 95129 28028', link: 'tel:+919512928028' },
+                { icon: '💬', label: 'WhatsApp', value: '+91 95129 28028', link: 'https://wa.me/919512928028' },
                 { icon: '📍', label: 'Location', value: 'India — serving brands nationwide' },
                 { icon: '⏱', label: 'Response Time', value: 'We reply within 24 business hours' },
               ].map((info, i) => (
@@ -102,7 +119,13 @@ export default function ContactPage() {
                   <div className="contact-info-icon">{info.icon}</div>
                   <div className="contact-info-text">
                     <div className="contact-info-label">{info.label}</div>
-                    <div className="contact-info-value">{info.value}</div>
+                    {info.link ? (
+                      <a href={info.link} target={info.link.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <div className="contact-info-value">{info.value}</div>
+                      </a>
+                    ) : (
+                      <div className="contact-info-value">{info.value}</div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -123,16 +146,27 @@ export default function ContactPage() {
               <div className="success-icon">✓</div>
               <h3>Thank you, {form.name.split(' ')[0]}!</h3>
               <p>
-                We've received your enquiry about <strong>{form.interest}</strong>.
-                Our team will reach out to <strong>{form.email}</strong> within
-                24 business hours.
+                Your inquiry has been sent to our team at <strong>+91 95129 28028</strong> regarding <strong>{form.interest}</strong>.
               </p>
-              <button
-                className="btn-outline"
-                onClick={() => { setForm(INITIAL_FORM); setSubmitted(false); }}
-              >
-                Submit Another Enquiry
-              </button>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+                <a
+                  href={`https://wa.me/919512928028?text=${encodeURIComponent(
+                    `*New Inquiry from PuzzleBoxx Website* 📦🌿\n\n*Company:* ${form.company}\n*Name:* ${form.name}\n*Mobile:* ${form.mobile}\n*Email:* ${form.email}\n*Area of Interest:* ${form.interest}\n${form.message ? `*Message:* ${form.message}\n` : ''}`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  💬 Open in WhatsApp (+91 95129 28028)
+                </a>
+                <button
+                  className="btn-outline"
+                  onClick={() => { setForm(INITIAL_FORM); setSubmitted(false); }}
+                >
+                  Submit Another Enquiry
+                </button>
+              </div>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
