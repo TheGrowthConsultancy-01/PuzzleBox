@@ -300,8 +300,8 @@ export default function HomePage() {
   }, []);
 
   const solutions = [
-    { icon: '🍫', title: 'Chocolate & Confectionery', desc: 'Compostable wrappers with full brand printing — same premium feel, zero plastic guilt.', link: '/projects/chocolate' },
-    { icon: '🥄', title: 'Branded Cutlery Sets', desc: 'Birchwood, bamboo & CPLA cutlery with your logo — for events, hotels, cafeterias.', link: '/projects/cutlery' },
+    { icon: '🍫', title: 'Branded Compostable Wrappers', desc: 'Compostable wrappers with full brand printing — same premium feel, zero plastic guilt.', link: '/projects/chocolate' },
+    { icon: '🥄', title: 'Branded Decomposable Cutlery  ', desc: 'Birchwood, bamboo & CPLA cutlery with your logo — for events, hotels, cafeterias.', link: '/projects/cutlery' },
   ];
 
   return (
@@ -625,12 +625,23 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.15}>
+            <ScrollReveal delay={0.15} className="p70-right-col">
               <div className="p70-visual-inner">
                 <div className="p70-big-number">&lt;70</div>
                 <div className="p70-visual-text">
                   <h3>Every Gram Counts</h3>
                   <p>Students track their daily haul. Schools compete. Brands get noticed. The planet gets a break.</p>
+                </div>
+              </div>
+
+              {/* Text under that card */}
+              <div className="p70-under-card">
+                <p className="p70-under-text">
+                  Associated With <strong>Wastevoltaic</strong> And <strong>Carbon Thumbprint</strong>.
+                </p>
+                <div className="p70-tags">
+                  <span>⚡ Wastevoltaic Circular Recovery</span>
+                  <span>🌱 Measured Carbon Thumbprint</span>
                 </div>
               </div>
             </ScrollReveal>

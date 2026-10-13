@@ -1049,6 +1049,51 @@
   line-height: 1.65;
 }
 
+.p70-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.p70-under-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--bronze-pale);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.p70-under-text {
+  font-size: 0.88rem;
+  color: #18181B;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.p70-under-text strong {
+  color: #0A0A0C;
+  font-weight: 800;
+}
+
+.p70-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.p70-tags span {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0A0A0C;
+  background: var(--cream-dark);
+  border: 1px solid var(--bronze-pale);
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+
 /* IMPACT CALCULATOR */
 .impact-calc { background: var(--cream); }
 
