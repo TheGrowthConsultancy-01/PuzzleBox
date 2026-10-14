@@ -634,14 +634,41 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Text under that card */}
+              {/* Associated With Partners under the visual card */}
               <div className="p70-under-card">
-                <p className="p70-under-text">
-                  Associated With <strong>Wastevoltaic</strong> And <strong>Carbon Thumbprint</strong>.
-                </p>
-                <div className="p70-tags">
-                  <span>⚡ Wastevoltaic Circular Recovery</span>
-                  <span>🌱 Measured Carbon Thumbprint</span>
+                <div className="p70-assoc-heading">
+                  <span className="p70-assoc-label">Associated With</span>
+                </div>
+                <div className="p70-assoc-grid">
+                  <div className="p70-assoc-item">
+                    <div className="p70-assoc-logo-wrap">
+                      <img
+                        src="/waste-voltaic-logo.png"
+                        alt="Waste Voltaic Foundation"
+                        className="p70-assoc-logo"
+                      />
+                    </div>
+                    <div className="p70-assoc-info">
+                      <span className="p70-assoc-name">Waste Voltaic Foundation</span>
+                      <span className="p70-assoc-desc">Circular Recovery Partner</span>
+                    </div>
+                  </div>
+
+                  <div className="p70-assoc-divider" aria-hidden="true" />
+
+                  <div className="p70-assoc-item">
+                    <div className="p70-assoc-logo-wrap">
+                      <img
+                        src="/carbon-thumbprint-logo.png"
+                        alt="Carbon Thumbprint"
+                        className="p70-assoc-logo"
+                      />
+                    </div>
+                    <div className="p70-assoc-info">
+                      <span className="p70-assoc-name">Carbon Thumbprint</span>
+                      <span className="p70-assoc-desc">Carbon Measurement Partner</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
